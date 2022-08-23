@@ -1,0 +1,14 @@
+plugins {
+    id 'java-library'
+}
+
+dependencies {
+    implementation project(path: ':libnavannotation')
+    api 'com.alibaba:fastjson:2.0.12.graal'
+    api 'com.google.auto.service:auto-service:1.0.1'
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
