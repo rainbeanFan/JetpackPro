@@ -3,10 +3,14 @@ package cn.jetpack.model
 import androidx.databinding.BaseObservable
 import java.io.Serializable
 
-const val TYPE_IMAGE_TEXT = 1
-const val TYPE_VIDEO = 2
+
 
 class Feed:BaseObservable(), Serializable {
+
+    companion object{
+        const val TYPE_IMAGE_TEXT = 1
+        const val TYPE_VIDEO = 2
+    }
 
     var id:Int? = null
     var itemId:Long? = null

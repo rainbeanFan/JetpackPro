@@ -17,7 +17,7 @@
 
         <import type="cn.jetpack.utils.StringConvert" />
 
-        <import type="com.mooc.ppjoke.ui.InteractionPresenter" />
+        <import type="cn.jetpack.ui.InteractionPresenter" />
 
         <import type="android.content.Context" />
 
@@ -49,28 +49,28 @@
             tools:icon="@drawable/icon_cell_like"
             tools:iconTint="@color/color_3d3"
             tools:text="1000"
-            tools:textColor="@color/color_3d3"></com.google.android.material.button.MaterialButton>
+            tools:textColor="@color/color_3d3" />
 
 
-<!--        <com.google.android.material.button.MaterialButton-->
-<!--            android:id="@+id/diss"-->
-<!--            android:layout_width="0dp"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:layout_weight="1"-->
-<!--            android:onClick="@{()->InteractionPresenter.toggleFeedDiss(lifeCycleOwner,feed)}"-->
-<!--            android:text="踩"-->
-<!--            android:textColor="@{feed.ugc.hasdiss?@color/color_theme:@color/color_3d3}"-->
-<!--            android:textSize="@dimen/sp_14"-->
-<!--            app:backgroundTint="@color/color_white"-->
-<!--            app:cornerRadius="0dp"-->
-<!--            app:icon="@{feed.ugc.hasdiss?@drawable/icon_cell_dissed:@drawable/icon_cell_diss}"-->
-<!--            app:iconGravity="textStart"-->
-<!--            app:iconPadding="4dp"-->
-<!--            app:iconTint="@{feed.ugc.hasdiss?@color/color_theme:@color/color_3d3}"-->
-<!--            tools:icon="@drawable/icon_cell_diss"-->
-<!--            tools:iconTint="@color/color_3d3"-->
-<!--            tools:text="1000"-->
-<!--            tools:textColor="@color/color_3d3"></com.google.android.material.button.MaterialButton>-->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/diss"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:onClick="@{()->InteractionPresenter.toggleFeedDiss(lifeCycleOwner,feed)}"
+            android:text="踩"
+            android:textColor="@{feed.ugc.hasDislike?@color/color_theme:@color/color_3d3}"
+            android:textSize="@dimen/sp_14"
+            app:backgroundTint="@color/color_white"
+            app:cornerRadius="0dp"
+            app:icon="@{feed.ugc.hasDislike?@drawable/icon_cell_dissed:@drawable/icon_cell_diss}"
+            app:iconGravity="textStart"
+            app:iconPadding="4dp"
+            app:iconTint="@{feed.ugc.hasDislike?@color/color_theme:@color/color_3d3}"
+            tools:icon="@drawable/icon_cell_diss"
+            tools:iconTint="@color/color_3d3"
+            tools:text="1000"
+            tools:textColor="@color/color_3d3" />
 
 
         <com.google.android.material.button.MaterialButton
@@ -90,7 +90,7 @@
             tools:icon="@drawable/icon_cell_comment"
             tools:iconTint="@color/color_3d3"
             tools:text="1000"
-            tools:textColor="@color/color_3d3"></com.google.android.material.button.MaterialButton>
+            tools:textColor="@color/color_3d3" />
 
 
         <com.google.android.material.button.MaterialButton
@@ -111,7 +111,7 @@
             tools:icon="@drawable/icon_cell_share"
             tools:iconTint="@color/color_3d3"
             tools:text="1000"
-            tools:textColor="@color/color_3d3"></com.google.android.material.button.MaterialButton>
+            tools:textColor="@color/color_3d3" />
 
     </LinearLayout>
 </layout>

@@ -13,17 +13,17 @@
             name="lifeCycleOwner"
             type="androidx.lifecycle.LifecycleOwner" />
 
-        <import type="com.mooc.ppjoke.ui.InteractionPresenter" />
+        <import type="cn.jetpack.ui.InteractionPresenter" />
 
         <import type="android.text.TextUtils" />
 
         <import type="android.view.View" />
 
-        <import type="com.mooc.ppjoke.utils.StringConvert" />
+        <import type="cn.jetpack.utils.StringConvert" />
 
     </data>
 
-    <cn.commonlibrary.CornerFrameLayout
+    <cn.commonlibrary.view.CornerFrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/dp_16"
@@ -142,5 +142,5 @@
             </FrameLayout>
 
         </LinearLayout>
-    </cn.commonlibrary.CornerFrameLayout>
+    </cn.commonlibrary.view.CornerFrameLayout>
 </layout>

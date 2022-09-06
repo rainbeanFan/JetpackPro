@@ -8,7 +8,7 @@ data class User(
     val id:Int,
     val userId:Long,
     val name:String,
-    val avatar:String,
+    var avatar:String,
     val description:String,
     val likeCount:Int,
     val topCommentCount:Int,

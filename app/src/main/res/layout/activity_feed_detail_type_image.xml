@@ -6,9 +6,9 @@
 
         <variable
             name="feed"
-            type="com.mooc.ppjoke.model.Feed" />
+            type="cn.jetpack.model.Feed" />
 
-        <import type="com.mooc.libcommon.utils.PixUtils"></import>
+        <import type="cn.commonlibrary.utils.PixUtils" />
     </data>
 
     <LinearLayout

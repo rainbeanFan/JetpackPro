@@ -7,6 +7,8 @@ import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.appcompat.widget.AppCompatImageView
+import androidx.databinding.Bindable
+import androidx.databinding.BindingAdapter
 import cn.commonlibrary.utils.PixUtils
 import cn.commonlibrary.utils.ViewHelper
 import com.bumptech.glide.Glide
@@ -30,10 +32,12 @@ class LancetImageView : AppCompatImageView {
         ViewHelper.setViewOutline(this, attrs!!, defStyleAttr, 0)
     }
 
+    @Bindable
     fun setImageUrl(view: LancetImageView, imageUrl: String, isCircle: Boolean) {
         view.setImageUrl(view, imageUrl, isCircle, 0)
     }
 
+    @Bindable
     fun setImageUrl(view: LancetImageView, imageUrl: String, isCircle: Boolean, radius: Int) {
         val builder = Glide.with(view).load(imageUrl)
         if (isCircle) {

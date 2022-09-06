@@ -5,13 +5,11 @@ import cn.jetpack.BR
 import java.io.Serializable
 
 data class Ugc(
-    @set:JvmName("setLikeCount")
     var likeCount: Int,
     val shareCount: Int,
     val commentCount: Int,
     var hasFavorite: Boolean,
-    @set:JvmName("setHasLike")
-    var hasLike: Boolean,
+    var hasLiked: Boolean,
     val hasDislike: Boolean
 ):BaseObservable(), Serializable {
 
@@ -27,15 +25,15 @@ data class Ugc(
                 return
             }
             if (value){
-                hasLike = false
+                hasLiked = false
             }
             field = value
             notifyPropertyChanged(BR._all)
         }
 
-    var _hasLike = hasLike
+    var _hasLike = hasLiked
         set(value){
-            if(hasLike == value){
+            if(hasLiked == value){
                 return
             }
             if (value){
@@ -44,7 +42,7 @@ data class Ugc(
             }else{
                 likeCount -= 1
             }
-            hasLike = value
+            hasLiked = value
             notifyPropertyChanged(BR._all)
         }
 
@@ -55,7 +53,7 @@ data class Ugc(
         }
 
     override fun toString(): String {
-        return "Ugc(likeCount=$likeCount, shareCount=$shareCount, commentCount=$commentCount, hasFavorite=$hasFavorite, hasLike=$hasLike, hasDislike=$hasDislike, _shareCount=$_shareCount, _hasDislike=$_hasDislike, _hasLike=$_hasLike)"
+        return "Ugc(likeCount=$likeCount, shareCount=$shareCount, commentCount=$commentCount, hasFavorite=$hasFavorite, hasLike=$hasLiked, hasDislike=$hasDislike, _shareCount=$_shareCount, _hasDislike=$_hasDislike, _hasLike=$_hasLike)"
     }
 
     override fun equals(other: Any?): Boolean {
@@ -68,7 +66,7 @@ data class Ugc(
         if (shareCount != other.shareCount) return false
         if (commentCount != other.commentCount) return false
         if (hasFavorite != other.hasFavorite) return false
-        if (hasLike != other.hasLike) return false
+        if (hasLiked != other.hasLiked) return false
         if (hasDislike != other.hasDislike) return false
         if (_shareCount != other._shareCount) return false
         if (_hasDislike != other._hasDislike) return false
@@ -82,7 +80,7 @@ data class Ugc(
         result = 31 * result + shareCount
         result = 31 * result + commentCount
         result = 31 * result + hasFavorite.hashCode()
-        result = 31 * result + hasLike.hashCode()
+        result = 31 * result + hasLiked.hashCode()
         result = 31 * result + hasDislike.hashCode()
         result = 31 * result + _shareCount
         result = 31 * result + _hasDislike.hashCode()

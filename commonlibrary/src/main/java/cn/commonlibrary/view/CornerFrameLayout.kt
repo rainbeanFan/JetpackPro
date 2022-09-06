@@ -1,4 +1,4 @@
-package cn.commonlibrary
+package cn.commonlibrary.view
 
 import android.content.Context
 import android.util.AttributeSet

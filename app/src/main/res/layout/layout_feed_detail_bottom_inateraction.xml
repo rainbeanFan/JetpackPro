@@ -7,7 +7,7 @@
 
         <variable
             name="feed"
-            type="com.mooc.ppjoke.model.Feed" />
+            type="cn.jetpack.model.Feed" />
 
         <variable
             name="fullscreen"
@@ -15,9 +15,9 @@
 
         <import type="android.view.View" />
 
-        <import type="com.mooc.ppjoke.ui.InteractionPresenter"></import>
+        <import type="cn.jetpack.ui.InteractionPresenter" />
 
-        <import type="android.content.Context"></import>
+        <import type="android.content.Context" />
 
         <variable
             name="owner"
@@ -91,7 +91,7 @@
                     android:text="@{feed.ugc.likeCount>0?String.valueOf(feed.ugc.likeCount):@string/like}"
                     android:textColor="@{feed.ugc.hasLiked?@color/color_theme:fullscreen?@color/color_white:@color/color_666}"
                     android:textSize="@dimen/sp_12"
-                    tools:text="赞"></TextView>
+                    tools:text="赞" />
             </LinearLayout>
 
 
@@ -121,7 +121,7 @@
                     android:text="@{feed.ugc.hasFavorite?@string/has_collect:@string/collect}"
                     android:textColor="@{feed.ugc.hasFavorite?@color/color_theme:fullscreen?@color/color_white:@color/color_666}"
                     android:textSize="@dimen/sp_12"
-                    tools:text="收藏"></TextView>
+                    tools:text="收藏" />
             </LinearLayout>
 
 
@@ -151,7 +151,7 @@
                     android:text="@string/share"
                     android:textColor="@{fullscreen?@color/color_white:@color/color_666}"
                     android:textSize="@dimen/sp_12"
-                    tools:text="分享"></TextView>
+                    tools:text="分享" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

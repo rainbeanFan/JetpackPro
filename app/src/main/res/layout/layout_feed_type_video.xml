@@ -12,7 +12,7 @@
             name="lifeCycleOwner"
             type="androidx.lifecycle.LifecycleOwner" />
 
-        <import type="com.mooc.ppjoke.model.Feed"></import>
+        <import type="cn.jetpack.model.Feed" />
 
     </data>
 
@@ -26,12 +26,12 @@
 
         <include
             layout="@layout/layout_feed_author"
-            app:user="@{feed.author}"></include>
+            app:user="@{feed.author}" />
 
         <include
             layout="@layout/layout_feed_text"
-            app:feedText="@{feed.feeds_text}"
-            app:lines="@{3}"></include>
+            app:feedText="@{feed.feedsStr}"
+            app:lines="@{3}" />
 
 
         <!--   视频区域-->
@@ -44,16 +44,16 @@
 
         <include
             layout="@layout/layout_feed_tag"
-            app:tagText="@{feed.activityText}"></include>
+            app:tagText="@{feed.activityTitle}" />
 
         <include
             layout="@layout/layout_feed_top_comment"
-            app:comment="@{feed.topComment}"></include>
+            app:comment="@{feed.topComment}" />
 
         <include
             android:id="@+id/interaction_binding"
             layout="@layout/layout_feed_interaction"
             app:feed="@{feed}"
-            app:lifeCycleOwner="@{lifeCycleOwner}"></include>
+            app:lifeCycleOwner="@{lifeCycleOwner}" />
     </LinearLayout>
 </layout>

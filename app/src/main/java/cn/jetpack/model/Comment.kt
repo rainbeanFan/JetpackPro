@@ -19,7 +19,7 @@ data class Comment(
     val height: Int,
     val hasLiked: Boolean,
     val author:User,
-    val ugc:Ugc
+    var ugc:Ugc
 ): BaseObservable(), Serializable {
 
     override fun equals(other: Any?): Boolean {
