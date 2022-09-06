@@ -10,9 +10,15 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        maven { url "https://jitpack.io" }
+        maven {
+            allowInsecureProtocol = true
+            url 'http://localhost:8081/repository/maven-releases/'}
     }
 }
 rootProject.name = "Jetpack"
 include ':app'
 include ':libnavcompiler'
 include ':libnavannotation'
+include ':commonlibrary'
+include ':libnet'

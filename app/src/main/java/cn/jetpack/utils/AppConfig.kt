@@ -1,5 +1,7 @@
 package cn.jetpack.utils
 
+import cn.commonlibrary.global.AppGlobal
+import cn.jetpack.model.BottomBar
 import cn.jetpack.model.Destination
 import com.alibaba.fastjson.JSON
 import com.alibaba.fastjson.TypeReference
@@ -9,16 +11,17 @@ class AppConfig {
 
     companion object {
 
-        private var sDestConfig: HashMap<String, Destination>? = null
+        private var sDestConfig: HashMap<String, Destination?>? = null
+        private var sBottomBar: BottomBar? = null
 
         @JvmStatic
-        fun getDestConfig(): HashMap<String, Destination> {
+        fun getDestConfig(): HashMap<String, Destination?> {
             sDestConfig ?: synchronized(this) {
                 sDestConfig ?: {
                     val content = parseFile("destination.json")
 
                     sDestConfig = JSON.parseObject(content,
-                        object : TypeReference<HashMap<String, Destination>>() {
+                        object : TypeReference<HashMap<String, Destination?>>() {
 
                         }.type)
                 }
@@ -26,7 +29,18 @@ class AppConfig {
             return sDestConfig!!
         }
 
-        fun parseFile(fileName: String): String {
+        @JvmStatic
+        fun getBottomBar(): BottomBar {
+            sBottomBar ?: synchronized(this) {
+                sBottomBar ?: {
+                    val content = parseFile("main_tabs_config.json")
+                    sBottomBar = JSON.parseObject(content,BottomBar::class.java)
+                }
+            }
+            return sBottomBar!!
+        }
+
+        private fun parseFile(fileName: String): String {
             val assets = AppGlobal.getApplication().resources.assets
             var stream: InputStream? = null
             var reader: BufferedReader? = null
