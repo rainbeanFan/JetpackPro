@@ -32,7 +32,7 @@ class LancetImageView : AppCompatImageView {
         ViewHelper.setViewOutline(this, attrs!!, defStyleAttr, 0)
     }
 
-    @Bindable
+    @BindingAdapter("")
     fun setImageUrl(view: LancetImageView, imageUrl: String, isCircle: Boolean) {
         view.setImageUrl(view, imageUrl, isCircle, 0)
     }
