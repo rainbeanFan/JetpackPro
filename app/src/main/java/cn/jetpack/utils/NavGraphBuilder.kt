@@ -23,9 +23,9 @@ class NavGraphBuilder {
 
             val activityNavigator = provider.getNavigator(ActivityNavigator::class.java)
 
-            val destConfig = AppConfig.getDestConfig()
+            val destConfig = AppConfig.getDestConfig(activity)
 
-            destConfig.values.forEach {
+            destConfig!!.values.forEach {
                 if (it != null) {
                     if (it.isFragment) {
                         val destination = fragmentNavigator.createDestination()

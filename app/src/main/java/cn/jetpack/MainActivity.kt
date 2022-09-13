@@ -29,26 +29,29 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         val fragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment)
         mNavController = NavHostFragment.findNavController(fragment!!)
 
-        NavGraphBuilder.build(this, fragment.childFragmentManager, mNavController, fragment.id)
+//        NavGraphBuilder.build(this, fragment.childFragmentManager, mNavController, fragment.id)
 
-        mBinding.navView.setOnNavigationItemSelectedListener(this)
+//        mBinding.navView.setOnNavigationItemSelectedListener(this)
 
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        val destConfig = AppConfig.getDestConfig()
-        val iterator = destConfig.entries.iterator()
-        while (iterator.hasNext()) {
-            val entry = iterator.next()
-            val value = entry.value
-            if (value != null && value.needLogin && value.destinationId == item.itemId) {
+//        val destConfig = AppConfig.getDestConfig(this)
+//        val iterator = destConfig.entries.iterator()
+//        while (iterator.hasNext()) {
+//            val entry = iterator.next()
+//            val value = entry.value
+//            if (value != null && value.needLogin && value.destinationId == item.itemId) {
+//
+//                return false
+//            }
+//        }
+//
+//        mNavController.navigate(item.itemId)
+//        return item.title.isNullOrBlank()
 
-                return false
-            }
-        }
+        return true
 
-        mNavController.navigate(item.itemId)
-        return item.title.isNullOrBlank()
     }
 
 }

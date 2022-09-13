@@ -54,22 +54,19 @@ dependencies {
 afterEvaluate {
     publishing {
         publications{
-
             release(MavenPublication){
                 artifact "${buildDir}/outputs/aar/libnet-debug.aar"
                 groupId 'cn.lancet'
                 artifactId 'libnet'
-                version  '0.9.5'
+                version  '1.0.0-beta'
             }
             debug(MavenPublication){
                 artifact "${buildDir}/outputs/aar/libnet-release.aar"
                 groupId 'cn.lancet'
                 artifactId 'libnet'
-                version  '0.9.5'
+                version  '1.0.0-beta'
             }
-
         }
-
         repositories {
             maven {
                 name "nexus"
@@ -81,6 +78,5 @@ afterEvaluate {
                 }
             }
         }
-
     }
 }

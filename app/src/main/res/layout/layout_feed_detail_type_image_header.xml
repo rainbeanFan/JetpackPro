@@ -29,7 +29,7 @@
 
         <include
             layout="@layout/layout_feed_text"
-            app:feedText="@{feed.feedsStr}"
+            app:feedText="@{feed.feeds_text}"
             app:lines="@{1000}" />
 
         <cn.jetpack.view.LancetImageView

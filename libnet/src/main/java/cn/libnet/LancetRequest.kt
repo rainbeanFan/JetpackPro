@@ -9,7 +9,6 @@ import okhttp3.Callback
 import okhttp3.Request
 import okhttp3.Response
 import java.io.IOException
-import java.io.Serializable
 import java.lang.reflect.ParameterizedType
 import java.lang.reflect.Type
 
@@ -19,9 +18,8 @@ const val CACHE_FIRST = 2
 const val NET_ONLY = 3
 const val NET_CACHE = 4
 
-interface ILancetRequest
 
-abstract class LancetRequest<T,out R:ILancetRequest>(val mUrl: String):Cloneable,ILancetRequest {
+abstract class LancetRequest<T,out R:LancetRequest<T,R>>(val mUrl: String):Cloneable {
 
     protected var headers = mutableMapOf<String, String>()
     protected var mParams = mutableMapOf<String, Any>()
@@ -36,10 +34,6 @@ abstract class LancetRequest<T,out R:ILancetRequest>(val mUrl: String):Cloneable
     annotation class CacheStrategy {
 
     }
-
-//    constructor(url:String) : this(){
-//        mUrl = url
-//    }
 
     fun addHeader(key:String, value:String):R{
         headers[key] = value
@@ -122,7 +116,7 @@ abstract class LancetRequest<T,out R:ILancetRequest>(val mUrl: String):Cloneable
     }
 
     @SuppressLint("RestrictedApi")
-    fun execute(callback:JsonCallback<T>?){
+    fun execute(callback:JsonCallback<T>){
         if(mCacheStrategy!=NET_ONLY){
             ArchTaskExecutor.getIOThreadExecutor().execute {
                 val response = readCache()
@@ -195,9 +189,7 @@ abstract class LancetRequest<T,out R:ILancetRequest>(val mUrl: String):Cloneable
         result.status = status
         result.message = message
 
-        if(mCacheStrategy!= NET_ONLY && result.success && result.body != null
-//            && result.body is Serializable
-        ){
+        if(mCacheStrategy!= NET_ONLY && result.success && result.body != null){
             saveCache(result.body!!)
         }
 
@@ -214,8 +206,8 @@ abstract class LancetRequest<T,out R:ILancetRequest>(val mUrl: String):Cloneable
         return cacheKey
     }
 
-    override fun clone(): LancetRequest<T,R> {
-        return super.clone() as LancetRequest<T,R>
+    override fun clone(): LancetRequest<T, R> {
+        return super.clone() as LancetRequest<T, R>
     }
 
 }

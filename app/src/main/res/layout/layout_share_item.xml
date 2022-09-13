@@ -7,14 +7,12 @@
     android:gravity="center"
     android:orientation="vertical">
 
-    <com.mooc.ppjoke.view.PPImageView
+    <cn.jetpack.view.LancetImageView
         android:id="@+id/share_icon"
         android:layout_width="44dp"
         android:layout_height="44dp"
         android:layout_gravity="center"
-        tools:src="@drawable/icon_empty_no_data">
-
-    </com.mooc.ppjoke.view.PPImageView>
+        tools:src="@drawable/icon_empty_no_data"/>
 
     <TextView
         android:id="@+id/share_text"

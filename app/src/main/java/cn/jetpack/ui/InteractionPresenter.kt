@@ -2,7 +2,6 @@ package cn.jetpack.ui
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.nfc.Tag
 import android.widget.Toast
 import androidx.arch.core.executor.ArchTaskExecutor
 import androidx.lifecycle.LifecycleOwner
@@ -14,10 +13,6 @@ import cn.jetpack.model.Comment
 import cn.jetpack.model.Feed
 import cn.jetpack.model.TagList
 import cn.jetpack.model.User
-import cn.libnet.ApiResponse
-import cn.libnet.ApiService
-import cn.libnet.JsonCallback
-import com.alibaba.fastjson.JSONObject
 
 class InteractionPresenter {
 

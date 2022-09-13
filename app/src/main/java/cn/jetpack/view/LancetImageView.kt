@@ -7,7 +7,6 @@ import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.appcompat.widget.AppCompatImageView
-import androidx.databinding.Bindable
 import androidx.databinding.BindingAdapter
 import cn.commonlibrary.utils.PixUtils
 import cn.commonlibrary.utils.ViewHelper
@@ -20,9 +19,9 @@ import jp.wasabeef.glide.transformations.RoundedCornersTransformation
 
 class LancetImageView : AppCompatImageView {
 
-    constructor(context: Context) : this(context, null)
+    constructor(context: Context) : super(context)
 
-    constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)
+    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
 
     constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(
         context,
@@ -32,26 +31,8 @@ class LancetImageView : AppCompatImageView {
         ViewHelper.setViewOutline(this, attrs!!, defStyleAttr, 0)
     }
 
-    @BindingAdapter("")
-    fun setImageUrl(view: LancetImageView, imageUrl: String, isCircle: Boolean) {
-        view.setImageUrl(view, imageUrl, isCircle, 0)
-    }
-
-    @Bindable
-    fun setImageUrl(view: LancetImageView, imageUrl: String, isCircle: Boolean, radius: Int) {
-        val builder = Glide.with(view).load(imageUrl)
-        if (isCircle) {
-            builder.transform(CircleCrop())
-        } else if (radius > 0) {
-            builder.transform(RoundedCornersTransformation(PixUtils.dp2px(radius), 0))
-        }
-        val layoutParams = view.layoutParams
-        if (layoutParams != null && layoutParams.width > 0 && layoutParams.height > 0) {
-            builder.override(layoutParams.width, layoutParams.height)
-        }
-        builder.into(view)
-
-
+    fun setImageUrl(imageUrl: String){
+        setImageUrl(this, imageUrl, false)
     }
 
     fun bindData(widthPx: Int, heightPx: Int, marginLeft: Int, imageUrl: String) {
@@ -100,7 +81,7 @@ class LancetImageView : AppCompatImageView {
     }
 
 
-    fun setSize(width: Int, height: Int, marginLeft: Int, maxWidth: Int, maxHeight: Int) {
+    private fun setSize(width: Int, height: Int, marginLeft: Int, maxWidth: Int, maxHeight: Int) {
         var fWidth = 0
         var fHeight = 0
         if (width > height) {
@@ -126,6 +107,30 @@ class LancetImageView : AppCompatImageView {
     companion object {
 
         @JvmStatic
+        @BindingAdapter(value = ["image_url", "isCircle"])
+        fun setImageUrl(view: LancetImageView, imageUrl: String, isCircle: Boolean) {
+            this.setImageUrl(view, imageUrl, isCircle, 0)
+        }
+
+        @JvmStatic
+        @BindingAdapter(value = ["image_url", "isCircle","radius"],requireAll = false)
+        fun setImageUrl(view: LancetImageView, imageUrl: String, isCircle: Boolean, radius: Int) {
+            val builder = Glide.with(view).load(imageUrl)
+            if (isCircle) {
+                builder.transform(CircleCrop())
+            } else if (radius > 0) {
+                builder.transform(RoundedCornersTransformation(PixUtils.dp2px(radius), 0))
+            }
+            val layoutParams = view.layoutParams
+            if (layoutParams != null && layoutParams.width > 0 && layoutParams.height > 0) {
+                builder.override(layoutParams.width, layoutParams.height)
+            }
+            builder.into(view)
+        }
+
+
+        @JvmStatic
+        @BindingAdapter(value = ["blur_url", "radius"])
         fun setBlurImageUrl(imageView: ImageView, blurUrl: String, radius: Int) {
             Glide.with(imageView).load(blurUrl).override(radius)
                 .transform(BlurTransformation())

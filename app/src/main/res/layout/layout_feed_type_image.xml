@@ -31,7 +31,7 @@
         <include
             layout="@layout/layout_feed_text"
             app:lines="@{3}"
-            app:feedText="@{feed.feedsStr}" />
+            app:feedText="@{feed.feeds_text}" />
 
 
         <!--   图片区域-->
@@ -43,7 +43,7 @@
 
         <include
             layout="@layout/layout_feed_tag"
-            app:tagText="@{feed.activityTitle}" />
+            app:tagText="@{feed.activityText}" />
 
         <include
             layout="@layout/layout_feed_top_comment"

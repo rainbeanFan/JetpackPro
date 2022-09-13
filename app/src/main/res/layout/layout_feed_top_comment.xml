@@ -63,16 +63,14 @@
                     android:layout_height="@dimen/dp_20"
                     app:image_url="@{comment.author.avatar}"
                     app:isCircle="@{true}"
-                    tools:src="@mipmap/ic_launcher_round">
-
-                </cn.jetpack.view.LancetImageView>
+                    tools:src="@mipmap/ic_launcher_round"/>
 
                 <TextView
                     android:id="@+id/user_name"
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/dp_20"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="@dimen/dp_10"
+                    android:layout_marginStart="@dimen/dp_10"
                     android:gravity="center_vertical"
                     android:text="@{comment.author.name}"
                     android:textColor="@color/color_3d3"
@@ -96,7 +94,7 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/dp_2"
+                    android:layout_marginStart="@dimen/dp_2"
                     android:onClick="@{()->InteractionPresenter.toggleCommentLike(lifeCycleOwner,comment)}"
                     android:src="@{comment.ugc.hasLiked?@drawable/icon_cell_liked:@drawable/icon_cell_like}"
                     tools:src="@drawable/icon_cell_liked">

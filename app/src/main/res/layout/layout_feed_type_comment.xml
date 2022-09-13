@@ -54,7 +54,7 @@
                 android:ellipsize="end"
                 android:gravity="center_vertical"
                 android:singleLine="true"
-                android:text="@{feed.feedsStr}"
+                android:text="@{feed.feeds_text}"
                 android:textColor="@color/color_000"
                 android:textSize="@dimen/sp_14"
                 android:textStyle="bold"/>
@@ -86,7 +86,7 @@
 
         <include
             layout="@layout/layout_feed_tag"
-            app:tagText="@{feed.activityTitle}" />
+            app:tagText="@{feed.activityText}" />
 
 
         <include

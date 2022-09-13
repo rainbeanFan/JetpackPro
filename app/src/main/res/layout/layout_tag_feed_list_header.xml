@@ -92,7 +92,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/dimen_16"
             android:layout_marginTop="@dimen/dp_10"
-            android:text="@{StringConvert.convertTagFeedList(tagList.enterNum)}"
+            android:text="@{StringConvert.convertTagFeeds(tagList.enterNum)}"
             android:textColor="@color/color_999"
             android:textSize="13sp"
             android:visibility="@{tagList.enterNum>0?View.VISIBLE:View.GONE}"

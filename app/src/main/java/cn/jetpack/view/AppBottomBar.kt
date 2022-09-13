@@ -6,6 +6,7 @@ import android.content.res.ColorStateList
 import android.graphics.Color
 import android.util.AttributeSet
 import cn.jetpack.R
+import cn.jetpack.model.BottomBar
 import cn.jetpack.utils.AppConfig
 import com.google.android.material.bottomnavigation.BottomNavigationItemView
 import com.google.android.material.bottomnavigation.BottomNavigationMenuView
@@ -25,7 +26,7 @@ class AppBottomBar : BottomNavigationView {
         defStyleAttr
     ) {
 
-        val bottomBar = AppConfig.getBottomBar()
+        val bottomBar = AppConfig.getBottomBar(context)
         val tabs = bottomBar.tabs
 
         val states = arrayOf(intArrayOf(android.R.attr.state_selected), intArrayOf())
@@ -40,7 +41,7 @@ class AppBottomBar : BottomNavigationView {
         itemTextColor = colorStateList
         labelVisibilityMode = LABEL_VISIBILITY_LABELED
 
-        selectedItemId = bottomBar.selectedTab
+        selectedItemId = bottomBar.selectTab
 
         tabs.forEach { tabBean ->
             if (!tabBean.enable) return
@@ -73,7 +74,7 @@ class AppBottomBar : BottomNavigationView {
     }
 
     private fun getId(pageUrl: String): Int {
-        val destination = AppConfig.getDestConfig()[pageUrl] ?: return -1
+        val destination = AppConfig.getDestConfig(context)?.get(pageUrl) ?: return -1
         return destination.destinationId
 
     }

@@ -17,7 +17,7 @@
             name="fullscreen"
             type="java.lang.Boolean" />
 
-        <import type="com.mooc.ppjoke.utils.TimeUtils" />
+        <import type="cn.jetpack.utils.TimeUtils" />
 
         <import type="cn.jetpack.ui.InteractionPresenter" />
 
