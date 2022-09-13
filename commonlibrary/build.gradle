@@ -53,4 +53,7 @@ dependencies {
     //gesture imageview
     api 'com.github.chrisbanes:PhotoView:2.3.0@aar'
 
+    api 'androidx.paging:paging-common-ktx:3.1.1'
+    api 'androidx.paging:paging-runtime-ktx:3.1.1'
+
 }
